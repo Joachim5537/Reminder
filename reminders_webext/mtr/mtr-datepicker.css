@@ -353,4 +353,12 @@ a {
     color: #e74c3c !important;
     border: 2px solid #ff8612 !important;
 }
+
+#mostCloseReminderTime{
+  display:block;
+  margin: 0 auto 10px;
+  padding: 5px 10px;
+  width: 90%;
+  text-align:center;
+  }
   
