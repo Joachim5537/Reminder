@@ -74,6 +74,14 @@ const setReminderList = response => {
     domElements.reminderPlaceholder.className = 'hide'
     for(let item in  tslReminders) {
       const localTime = parseInt(item.split('_')[1])
+      var date = new Date(localTime);
+      var year = date.getFullYear();
+      var month = ("0" + (date.getMonth() + 1)).slice(-2);
+      var day = ("0" + date.getDate()).slice(-2);
+      var hour = date.getHours();
+      var minutes = date.getMinutes();
+      var seconds = date.getSeconds();
+      var display_time = year+'-'+month+'-'+day+' '+hour+':'+minutes;
       const reminder = document.createElement('div')
       const reminderArrow = document.createElement('span')
       const reminderText = document.createElement('span')
@@ -81,7 +89,7 @@ const setReminderList = response => {
       reminder.className = 'reminder'
       reminder.setAttribute('title', new Date(localTime))
       reminderArrow.textContent = '»'
-      reminderText.textContent = tslReminders[item]
+      reminderText.textContent = tslReminders[item] + ' (' + display_time +')';
       reminderDelete.textContent = '✖'
       reminderDelete.addEventListener('click',() => removeReminder(item,reminder, tslReminders))
       reminder.appendChild(reminderArrow)
