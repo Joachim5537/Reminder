@@ -1,6 +1,7 @@
 const config = {
     target:     'start-date-mtr-datepicker',
-    timestamp:  new Date,
+    // timestamp:  new Date,
+    disableAmPm: true,
     future:     true,
     months: {
       min: 0,
