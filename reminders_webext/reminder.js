@@ -34,7 +34,11 @@ const domElements = {
 const myDatepicker = new MtrDatepicker(config);
 
 domElements.saveReminder.addEventListener('click', ()=>{
-
+	
+	if(document.getElementById("reminder-text").value == ''){
+		  alert("please enter something!");return false;
+		  }
+	  
     const when = myDatepicker.getTimestamp()
     const sending = browser.runtime.sendMessage({
         action: "create",
